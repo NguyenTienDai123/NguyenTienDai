@@ -1,0 +1,72 @@
+/* Reset các style cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: gray;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    z-index: 2;
+}
+
+.menu-item {
+    position: relative;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu-item a {
+    color: #fff;  /* Màu chữ mặc định là trắng */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+/* Thay đổi màu chữ khi hover */
+.menu-item:hover a {
+    color: blue;
+}
+
+.product-image {
+    position: absolute;
+    top: 100%; /* Đặt hình ảnh ngay phía dưới menu */
+    left: -100%; /* Bắt đầu ngoài màn hình bên phải */
+    transform: translateY(10px); /* Để hình ảnh không đè lên menu */
+    z-index: 0; /* Đảm bảo hình ảnh ở dưới menu */
+    animation: moveImage 10s linear infinite; /* Hiệu ứng di chuyển tự động */
+}
+
+.product-image img {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Keyframes để tạo hiệu ứng di chuyển từ phải qua trái */
+@keyframes moveImage {
+    0% {
+        left: 100%; /* Bắt đầu bên phải ngoài màn hình */
+    }
+    50% {
+        left: 0%; /* Vị trí giữa màn hình */
+    }
+    100% {
+        left: -100%; /* Kết thúc bên trái ngoài màn hình */
+    }
+}
